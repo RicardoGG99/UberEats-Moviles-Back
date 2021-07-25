@@ -28,6 +28,6 @@ CREATE DATABASE IF NOT EXISTS dcl8ms23tsb5fs;
    CREATE TABLE IF NOT EXISTS Admin(
        admin_id SERIAL NOT NULL,
        admin_username VARCHAR(100) NOT NULL,
-       admin_password VARCHAR(100) NOT NULL,
+       admin_password VARCHAR(100),
        PRIMARY KEY(admin_id)
    );
