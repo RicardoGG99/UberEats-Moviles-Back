@@ -39,6 +39,11 @@ const querys = {
   //Admin Queries
 
   CREATE_ADMINPASS: `UPDATE Admin SET password = $1 WHERE username = $2`,
+
+  //Payment Queries
+
+  CREATE_PAYMENT: `INSERT INTO public. "Payment" (commerce_id,  payment_from, payment_to, payment_name, payment_ci, payment_date,  payment_code, payment_amount) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *` ,
+  
 };
 
 module.exports = querys;

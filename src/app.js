@@ -13,6 +13,8 @@ const CommerceRoutes = require("./routes/commerce");
 const AuthCommerceRoutes = require("./routes/auth.commerce");
 const ProductRoutes = require("./routes/product");
 const AuthProductRoutes = require("./routes/auth.product");
+const AuthPaymentRoute = require("./routes/auth.payment");
+const CarRoute = require('./routes/car');
 
 const app = express();
 
@@ -57,6 +59,8 @@ app.use(CommerceRoutes);
 app.use(AuthCommerceRoutes);
 app.use(ProductRoutes);
 app.use(AuthProductRoutes);
+app.use(AuthPaymentRoute);
+app.use(CarRoute);
 
 const PORT = process.env.PORT || 3000;
 
