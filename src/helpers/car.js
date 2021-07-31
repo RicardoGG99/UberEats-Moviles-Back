@@ -26,6 +26,37 @@ const createCar = async  (req, res) => {
     }
 }
 
+const deleteItem = async (req, res) => {
+    const id = req.params.id;
+    try{
+        await db.query('BEGIN');
+        const checkId = await db.query(queries.CHECKPRODUCTID, [id]);
+
+        if(checkId.rows != ''){
+            console.log('Product Found!');
+
+            car = req.session.car;
+            itemIndex = car.indexOf(checkId.rows[0].product_id);
+            console.log("el index: " + itemIndex);
+            if(itemIndex != -1){
+            car.splice(itemIndex, 1);
+            console.log(req.session);
+            res.status(200).send('Product Deleted!')
+        }else{
+            res.status(400).send('Product not Found in the car!')
+        }
+
+        }else{
+            console.log(`Item not found!`);
+            res.status(400).send('Item not found!')
+        }
+    }catch(err){
+        res.status(500).send('Server Error!')
+        throw err;
+    }
+}
+
 module.exports = {
-    createCar
+    createCar,
+    deleteItem
 }
