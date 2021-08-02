@@ -41,6 +41,8 @@ const deleteItem = async (req, res) => {
                 console.log(element.id)
                 if (element.id === checkId.rows[0].product_id) {
                   return element.id;
+                }else{
+                    return element.id;
                 }
               });
             console.log("el index: " + itemIndex);
