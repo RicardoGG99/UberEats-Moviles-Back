@@ -41,8 +41,6 @@ const deleteItem = async (req, res) => {
                 console.log(element.id)
                 if (element.id === checkId.rows[0].product_id) {
                   return element.id;
-                }else{
-                    return element.id;
                 }
               });
             console.log("el index: " + itemIndex);
@@ -52,7 +50,7 @@ const deleteItem = async (req, res) => {
             res.status(200).send('Product Deleted!')
         }else{
             console.log('Product not found in the car!')
-            res.status(400).send(`Product not Found in the car! a ${element.id}`)
+            res.status(400).send(`Product not Found in the car! a ${itemIndex}`)
         }
 
         }else{
