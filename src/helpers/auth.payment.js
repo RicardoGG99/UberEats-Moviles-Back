@@ -24,6 +24,30 @@ const createPayment = async (req, res) => {
     }
 }
 
+const deletePayment = async (req, res) => {
+    try{
+        const id = req.params.id;
+         
+        await db.query('BEGIN'); 
+        const checkId = await db.query(queries.CHECKPAYMENT, [id]);
+ 
+        if(checkId != '') {
+            const response = await db.query(queries.DELETE_PAYMENT, [id]);
+            console.log(response.rows);
+            res.status(200).send(`Payment ${id} deleted!`);
+             await db.query('COMMIT');
+        }else{
+         await db.query('ROLLBACK');
+         res.status(400).send(`Payment ${id} not Found!`);
+        }
+     }catch(err){      
+         await db.query('ROLLBACK');
+         res.status(500).send('Server Error!');
+         throw err;
+     }
+}
+
 module.exports = {
-    createPayment
+    createPayment,
+    deletePayment
 }

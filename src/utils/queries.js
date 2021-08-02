@@ -18,6 +18,7 @@ const querys = {
   CHECKCOMMERCEID: `SELECT * FROM Commerce WHERE commerce_id = $1`,
   CHECKPRODUCTID: `SELECT FROM Product WHERE product_id = $1`,
   CHECKADMIN: `SELECT FROM Admin WHERE username = $1`,
+  CHECKPAYMENT: `SELECT * FROM Payment WHERE payment_id = $1`,
 
   //Commerce Queries
 
@@ -42,7 +43,8 @@ const querys = {
 
   //Payment Queries
 
-  CREATE_PAYMENT: `INSERT INTO public. "Payment" (commerce_id,  payment_from, payment_to, payment_name, payment_ci, payment_date,  payment_code, payment_amount) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *` ,
+  CREATE_PAYMENT: `INSERT INTO Payment (commerce_id,  payment_from, payment_to, payment_name, payment_ci, payment_date,  payment_code, payment_amount) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *` ,
+  DELETE_PAYMENT: `DELETE FROM Payment WHERE payment_id = $1`,
   
 };
 

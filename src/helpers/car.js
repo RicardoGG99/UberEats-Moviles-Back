@@ -11,7 +11,7 @@ const createCar = async  (req, res) => {
 
     console.log('Product Found!');
     car = req.session.car;
-    car.push(product.rows[0].product_id);
+    car.push([product.rows[0].product_id, product.rows[0].product_name, product.rows[0].product_price]);
     req.session.car = car;
 
     res.status(200).send(req.session);
