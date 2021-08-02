@@ -58,7 +58,7 @@ const deleteItem = async (req, res) => {
             res.status(400).send('Item not found!')
         }
     }catch(err){
-        res.status(500).send('Server Error!', err)
+        res.status(500).send(err)
         throw err;
     }
 }
