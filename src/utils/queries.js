@@ -16,8 +16,8 @@ const querys = {
   CHECKID: `SELECT * FROM Users WHERE user_id = $1`,
   CHECKEXISTENCE: `SELECT * FROM Commerce WHERE commerce_name = $1`,
   CHECKCOMMERCEID: `SELECT * FROM Commerce WHERE commerce_id = $1`,
-  CHECKPRODUCTID: `SELECT FROM Product WHERE product_id = $1`,
-  CHECKADMIN: `SELECT FROM Admin WHERE username = $1`,
+  CHECKPRODUCTID: `SELECT * FROM Product WHERE product_id = $1`,
+  CHECKADMIN: `SELECT * FROM Admin WHERE username = $1`,
   CHECKPAYMENT: `SELECT * FROM Payment WHERE payment_id = $1`,
 
   //Commerce Queries
