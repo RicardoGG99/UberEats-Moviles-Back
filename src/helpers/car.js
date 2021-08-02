@@ -50,7 +50,7 @@ const deleteItem = async (req, res) => {
             res.status(200).send('Product Deleted!')
         }else{
             console.log('Product not found in the car!')
-            res.status(400).send(`Product not Found in the car!${element.id}`)
+            res.status(400).send(`Product not Found in the car! a ${element.id}`)
         }
 
         }else{
